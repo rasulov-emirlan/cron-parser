@@ -53,10 +53,10 @@ go build -o bin/cron-parser cmd/cli/main.go
 Now you should have a binary in the `bin` directory called `cron-parser`. You can just run it as follows.
 
 ```
-bin/cron-parser  "*/15 0 1,15 * 1-5 /usr/bin/find
+bin/cron-parser  "*/15 0 1,15 * 1-5 /usr/bin/find"
 ```
 
-# Docker
+## Docker
 
 If you have docker installed then just go to the root of this project and run following command in your terminal
 

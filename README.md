@@ -30,13 +30,15 @@ command /usr/bin/find
 
 ## Compile and run
 
-- Go to [oficial page](https://go.dev/dl/). And install latest version of go. Then open up your terminal in the root of this project. And run the following commands.
+Go to [oficial page](https://go.dev/dl/). And install latest version of go. Then open up your terminal in the root of this project. And run the following commands.
 
 ```
 go mod tidy
 ```
 
-This will install any dependencies we might need. Probably you won't need any but its a good practive. And now you can compile our code with `Makefile`.
+This will install any dependencies we might need. Probably you won't need any but its a good practive.
+
+And now you can compile our code with `Makefile`.
 
 ```
 make
@@ -52,4 +54,18 @@ Now you should have a binary in the `bin` directory called `cron-parser`. You ca
 
 ```
 bin/cron-parser  "*/15 0 1,15 * 1-5 /usr/bin/find
+```
+
+# Docker
+
+If you have docker installed then just go to the root of this project and run following command in your terminal
+
+```
+docker build -t cron-parser ./
+```
+
+This now should build the image we will run. Now if you did not see any errors then run our code as such
+
+```
+docker run cron-parser "*/15 0 1,15,16 * 1-5 /usr/bin/find"
 ```

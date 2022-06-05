@@ -126,7 +126,7 @@ func (c *CronCommand) ParseMinute(s string) error {
 
 func (c *CronCommand) ParseHour(s string) error {
 	if s == "*" {
-		for i := 0; i < 24; i++ {
+		for i := 0; i < 25; i++ {
 			c.Hour = append(c.Hour, i)
 		}
 		return nil
@@ -177,7 +177,7 @@ func (c *CronCommand) ParseHour(s string) error {
 				start = c.Hour[len(c.Hour)-1] + n
 			}
 
-			for ; start < 12; start += n {
+			for ; start < 25; start += n {
 				c.Hour = append(c.Hour, start)
 			}
 
@@ -205,6 +205,10 @@ func (c *CronCommand) ParseHour(s string) error {
 
 			for ; first <= second; first++ {
 				c.Hour = append(c.Hour, first)
+			}
+			j++
+			if j == len(nums) {
+				break
 			}
 			i += len(nums[j])
 		}
